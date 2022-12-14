@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import '../descriptionpage.dart';
 
 class BlogBoxWidget extends StatelessWidget {
-  const BlogBoxWidget({super.key});
+  const BlogBoxWidget(
+      {super.key, required this.title, required this.imagePath});
+
+  final String title;
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +15,9 @@ class BlogBoxWidget extends StatelessWidget {
       onTap: () {
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (BuildContext buildContext) {
-          return const DescriptionPage(
-            title: "How to get rich?",
-            imagePath: "images/girl-with-big-phone.png",
+          return DescriptionPage(
+            title: title,
+            imagePath: imagePath,
           );
         }));
       },
@@ -36,10 +40,10 @@ class BlogBoxWidget extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset("images/girl-with-big-phone.png"),
-            const ListTile(
-              title: Text("How to get rich ?"),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+            Image.asset(imagePath),
+            ListTile(
+              title: Text(title),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
             ),
           ],
         ),

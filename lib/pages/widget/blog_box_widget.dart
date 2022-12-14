@@ -23,6 +23,9 @@ class BlogBoxWidget extends StatelessWidget {
       },
       child: Container(
         width: double.infinity,
+        padding: const EdgeInsets.symmetric(
+          vertical: 35,
+        ),
         margin: const EdgeInsets.symmetric(
           horizontal: 10.0,
           vertical: 5.0,
